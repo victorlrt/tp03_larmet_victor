@@ -1,0 +1,12 @@
+<div class="listCatalogue">
+  <p>TEST catalogue</p>
+
+  <div *ngFor="let p of catalogue$ | async">
+    <div class="itemCatalogue">
+      <p>Name : {{p.name}}</p> <br>
+      <p>Price : {{p.price}} €</p> <br>
+      <p>Description : {{p.description}}</p> <br>
+    </div>
+  </div>
+
+</div>

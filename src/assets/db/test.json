@@ -1,0 +1,10 @@
+// list of mushrooms that are edible
+[
+  {
+    "name": "chanterelle",
+    "edible": true,
+    "poisonous": false,
+    "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Cantharellus_cibarius_2.jpg/220px-Cantharellus_cibarius_2.jpg"
+    "description": "yellowish-orange, bell-shaped, and have a pleasant, mild flavor",
+  }
+]

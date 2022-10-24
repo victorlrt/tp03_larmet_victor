@@ -1,13 +1,19 @@
 import { Injectable } from '@angular/core';
+import { Observable, of } from 'rxjs';
 import { Product } from './product';
+import { HttpClient } from '@angular/common/http';
+import { environment } from '../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CatalogueService {
 
-  constructor(public ts: CatalogueService) {
+  constructor(private http: HttpClient) {}
+  env = environment;
 
+    this.listProducts.push(this.product1);
+    this.listProducts.push(this.product2);
   }
 
   product1 : Product = {
@@ -28,13 +34,10 @@ export class CatalogueService {
 
   listProducts: Product[] = [];
 
-  ngOnInit() {
-    this.listProducts.push(this.product1);
-    this.listProducts.push(this.product2);
-  }
 
-  getCatalogue() {
-    return this.listProducts;
+
+  getCatalogue() : Observable<Product[]> {
+    return of(this.listProducts);
   }
 
 }

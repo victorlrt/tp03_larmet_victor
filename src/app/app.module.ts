@@ -11,7 +11,7 @@ import { CheckFormStringDirective } from './directive/directive-string/check-for
 import { CheckFormNumberDirective } from './directive/directive-number/check-form-number.directive';
 import { PipeFormatTelPipe } from './pipe/pipe-format-tel.pipe';
 import { CheckFormEMailDirective } from './directive/directive-email/check-form-email.directive';
-import { ProductCatalogueComponent } from './product-catalogue/product-catalogue.component';
+import { ProductCatalogueComponent } from './component-catalogue/product-catalogue.component';
 
 @NgModule({
   declarations: [
