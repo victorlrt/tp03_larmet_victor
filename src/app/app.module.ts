@@ -12,6 +12,7 @@ import { CheckFormNumberDirective } from './directive/directive-number/check-for
 import { PipeFormatTelPipe } from './pipe/pipe-format-tel.pipe';
 import { CheckFormEMailDirective } from './directive/directive-email/check-form-email.directive';
 import { ProductCatalogueComponent } from './component-catalogue/product-catalogue.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { ProductCatalogueComponent } from './component-catalogue/product-catalog
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

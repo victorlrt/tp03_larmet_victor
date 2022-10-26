@@ -3,9 +3,11 @@
 
   <div *ngFor="let p of catalogue$ | async">
     <div class="itemCatalogue">
-      <p>Name : {{p.name}}</p> <br>
-      <p>Price : {{p.price}} €</p> <br>
+      <p>Nom : {{p.name}}</p> <br>
       <p>Description : {{p.description}}</p> <br>
+      <p><img src="{{p.img}}" alt="N/A" width="30%" height="30%"/> </p>
+      
+
     </div>
   </div>
 
