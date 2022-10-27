@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule} from  '@angular/forms';
+import { FormsModule, FormGroup, ReactiveFormsModule } from  '@angular/forms';
 
 import { AppComponent } from './component-main/app.component';
 import { ComponentHeaderComponent } from './component-header/component-header.component';
@@ -13,6 +13,13 @@ import { PipeFormatTelPipe } from './pipe/pipe-format-tel.pipe';
 import { CheckFormEMailDirective } from './directive/directive-email/check-form-email.directive';
 import { ProductCatalogueComponent } from './component-catalogue/product-catalogue.component';
 import { HttpClientModule } from '@angular/common/http';
+import { Routes, RouterModule } from '@angular/router';
+
+const routes: Routes = [
+  { path: '', component: ComponentFormComponent },
+  { path: 'client-form', component: ComponentFormComponent },
+  {path: 'catalogue', component: ProductCatalogueComponent}
+];
 
 @NgModule({
   declarations: [
@@ -30,7 +37,9 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule.forRoot(routes),
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

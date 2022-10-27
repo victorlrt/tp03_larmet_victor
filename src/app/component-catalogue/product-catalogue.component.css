@@ -2,7 +2,24 @@
     orientation: center;
     border: 1px solid #ccc;
     padding: 1em;
+    display: flex;
+    flex-direction: row;
+
 }
+
+.imgCatalogue img {
+  width: 25em;
+  height: 25em;
+}
+
+.infoCatalogue {
+  margin: 1em;
+}
+
+.infoCatalogue p {
+  padding: 0.2em;
+}
+
 
 .listCatalogue {
   margin: 1em 5em;

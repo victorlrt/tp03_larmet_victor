@@ -3,6 +3,7 @@ import { Observable, of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../environments/environment';
 import { Mushroom } from './mushroom';
+import { map } from 'rxjs/internal/operators/map';
 
 @Injectable({
   providedIn: 'root'
@@ -22,5 +23,7 @@ export class CatalogueService {
   getCatalogue() : Observable<Mushroom[]> {
     return this.http.get<Mushroom[]>(this.env.catalogue);
   }
+
+
 
 }
