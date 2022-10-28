@@ -77,7 +77,8 @@ export class ProductCatalogueComponent implements OnInit {
             if (this.formSearchText.value.nameFilter != '') {
               boolFilter = mushroom.name.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "").indexOf(this.formSearchText.value.nameFilter.toLowerCase()) > -1;
 
-            } else {
+            }
+              else {
               boolFilter = true;
             }
 

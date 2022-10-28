@@ -5,7 +5,7 @@
     <h3>Filter :</h3>
 
     <form [formGroup]="formSearchText">
-      <label>Name : <input type="text" formControlName="nameFilter" (keypress)="doFilterMushroomName()" />
+      <label>Name : <input type="text" formControlName="nameFilter" (keydown)="doFilterMushroomName()"  />
       </label>
     </form>
 
