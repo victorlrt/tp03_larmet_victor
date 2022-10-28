@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { CatalogueService } from '../catalogue.service';
 import { Mushroom } from '../mushroom';
-import { distinct, map } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 
@@ -12,7 +12,13 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./product-catalogue.component.css']
 })
 export class ProductCatalogueComponent implements OnInit {
-  
+
+  constructor(public tsCatalogue: CatalogueService) { }
+
+  catalogue$: Observable<Mushroom[]>;
+  uniqueData$: Observable<String[]>;
+
+
   formSearchText = new FormGroup({
     nameFilter: new FormControl('', [
       Validators.required,
@@ -26,30 +32,18 @@ export class ProductCatalogueComponent implements OnInit {
   });
 
   formChoiceToxicity: FormGroup = new FormGroup({
-    poisonousFilter: new FormControl('')
+    toxicityFilter: new FormControl('')
   });
-  
-  // get distinct toxicity of catalogue
-  getDistinctToxicity(): Observable<string[]> {
-    return this.tsCatalogue.getCatalogue().pipe(
-      map((listProducts: Mushroom[]) => listProducts.map(mushroom => mushroom.toxicity)),
-      distinct()
-    );
-  }
 
-  constructor(public tsCatalogue: CatalogueService) { }
 
-  catalogue$: Observable<Mushroom[]>;
-  uniqueData$: Observable<string[]>;
+
+
 
   ngOnInit(): void {
     this.catalogue$ = this.tsCatalogue.getCatalogue();
-    console.log(this.getDistinctToxicity());
+    this.uniqueData$ = this.tsCatalogue.getCatalogueDistinctTypeToxicity();
   }
 
-  submit() {
-    console.log(this.formSearchText.value);
-  }
 
   doFilterMushroomEdible(): void {
     this.catalogue$ = this.tsCatalogue.getCatalogue().pipe(
@@ -59,34 +53,21 @@ export class ProductCatalogueComponent implements OnInit {
           mushroom => {
             let boolFilter = false;
             if (this.formChoiceEdible.value.edibleFilter === 'Yes') {
-              console.log(this.formChoiceEdible.value.edibleFilter);
               boolFilter = mushroom.edible.valueOf() === true;
 
-            } else {
+            }
+            else if(this.formChoiceEdible.value.edibleFilter === 'No') {
               boolFilter = mushroom.edible.valueOf() === false;
+            }
+            else {
+              boolFilter = true;
             }
 
             return boolFilter;
           })));
   }
-  
-  // A finir avec un distinct
-  doFilterMushroomToxicity(): void {
-    this.catalogue$ = this.tsCatalogue.getCatalogue().pipe(
-      map((
-        listProducts: Mushroom[]) => listProducts.filter(
 
-          mushroom => {
-            let boolFilter = false;
-           
-
-            return boolFilter;
-          })));
-  }
-
-
-
-  doFilterMushroomType(): void {
+  doFilterMushroomName(): void {
     this.catalogue$ = this.tsCatalogue.getCatalogue().pipe(
       map((
         listProducts: Mushroom[]) => listProducts.filter(
@@ -100,11 +81,28 @@ export class ProductCatalogueComponent implements OnInit {
               boolFilter = true;
             }
 
-
-
-
             return boolFilter;
           })));
+  }
+
+  doFilterDistinctToxicity(): void {
+    this.catalogue$ = this.tsCatalogue.getCatalogue().pipe(
+      map((
+        listProducts: Mushroom[]) => listProducts.filter(
+          mushroom => {
+            let boolFilter = false;
+            console.log(this.formChoiceToxicity.value.toxicityFilter.valueOf().length);
+            if(this.formChoiceToxicity.value.toxicityFilter.valueOf().length !== 0) {
+              boolFilter =  this.formChoiceToxicity.value.toxicityFilter.valueOf().includes(mushroom.toxicity.valueOf());
+            }
+            else {
+              boolFilter = true;
+            }
+
+            return boolFilter;
+
+          })));
+
   }
 
 

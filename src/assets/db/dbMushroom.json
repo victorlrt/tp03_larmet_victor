@@ -5,7 +5,7 @@
     "poisonous": true,
     "img": "https://www.chasseursdechampignons.com/blog/wp-content/uploads/2022/06/Des-amanites-tue-mouche-Amanita-muscaria-en-groupe.jpg",
     "description": "Amanita muscaria, commonly known as the fly agaric or fly amanita, is a basidiomycete of the genus Amanita. It is also a muscimol mushroom. Native throughout the temperate and boreal regions of the Northern Hemisphere. Although poisonous, death due to poisoning from A. muscaria ingestion is quite rare. Parboiling twice with water draining weakens its toxicity and breaks down the mushroom's psychoactive substances.",
-    "toxicity": "lethal"
+    "toxicity": "Lethal"
   },
   {
     "name": "Amanite phalloïde",
@@ -13,7 +13,7 @@
     "poisonous": true,
     "img": "https://upload.wikimedia.org/wikipedia/commons/9/99/Amanita_phalloides_1.JPG",
     "description": "Amanite phalloïde is a poisonous mushroom that is found in Europe, North America, and Asia. It is one of the most toxic mushrooms in the world, and is responsible for many deaths. It is also known as the death cap, destroying angel, devil's mushroom, or inedible amanita.",
-    "toxicity": "lethal"
+    "toxicity": "Lethal"
   },
   {
     "name": "Amanite vireuse",
@@ -21,7 +21,7 @@
     "poisonous": true,
     "img": "https://upload.wikimedia.org/wikipedia/commons/8/81/Destroying_Angel_02.jpg",
     "description": "Amanite vireuse, commonly known in Europe as the destroying angel or the European destroying angel amanita (Amanita virosa), is a poisonous mushroom that is found in Europe, North America, and Asia. It is one of the most toxic mushrooms in the world, and is responsible for many deaths.",
-    "toxicity": "lethal"
+    "toxicity": "Lethal"
   },
   {
     "name": "Cêpe de Bordeaux",
@@ -45,7 +45,7 @@
     "poisonous": true,
     "img": "https://upload.wikimedia.org/wikipedia/commons/6/6b/Psilocybe_semilanceata.jpg",
     "description": "Psilocybe semilanceata, commonly known as the liberty cap, is a species of fungus which produces the psychoactive mushroom psilocybin.",
-    "toxicity": "hallucinogenic"
+    "toxicity": "Hallucinogenic"
   },
   {
     "name": "Truffe",

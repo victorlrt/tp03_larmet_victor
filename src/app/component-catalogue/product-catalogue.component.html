@@ -1,45 +1,46 @@
 <div class="listCatalogue">
-  <p>TEST catalogue</p>
 
+  <div class="groupFilter">
 
-  <form [formGroup]="formSearchText">
-    <label>Name : <input type="text" formControlName="nameFilter" /></label>
-    <!-- <label>Toxicity: <input type="text" formControlName="toxicityFilter" /></label> --> 
-    <button (click)="doFilterMushroomType()"> OK </button>
-  </form>
+    <h3>Filter :</h3>
 
-  <form [formGroup]="formChoiceEdible">
-    <label>Edible : </label>
-      <select formControlName="edibleFilter" (change)="doFilterMushroomEdible()">
-        <option> Yes </option>
-        <option> No </option>
-      </select> 
-  </form>
+    <form [formGroup]="formSearchText">
+      <label>Name : <input type="text" formControlName="nameFilter" (keypress)="doFilterMushroomName()" />
+      </label>
+    </form>
 
-  <!-- <form [formGroup]="formChoiceToxicity">
-    <label>Toxicity : </label>
-      <select formControlName="toxicityFilter" (change)="doFilterMushroomToxicity()">
-        <option *ngFor="let pTest of getDistinctToxicity() | async"> {{ pTest }} </option>
-      </select> 
-  </form>  -->
+    <form [formGroup]="formChoiceEdible">
+      <label>Edible : <select formControlName="edibleFilter" (change)="doFilterMushroomEdible()">
+          <option> All </option>
+          <option> Yes </option>
+          <option> No </option>
+        </select></label>
 
- 
+    </form>
 
+    <form [formGroup]="formChoiceToxicity">
+      <label>Toxicity : </label> <br>
+      <select formControlName="toxicityFilter" multiple size=3 (change)="doFilterDistinctToxicity()">
+        <option *ngFor="let pToxicity of uniqueData$ | async"> {{ pToxicity }} </option>
+      </select>
+    </form>
+  </div>
 
-  <!-- formControlName="edibleFilter" -->
-  <div *ngFor="let p of catalogue$ | async">
-    <div class="itemCatalogue">
-      <div class="imgCatalogue">
-        <p><img src="{{p.img}}" alt="N/A" /> </p>
-      </div>
-      <div class="infoCatalogue">
-        <p> Name : {{p.name}}</p>
-        <p> Description : {{p.description}}</p>
-        <p> Edible : {{p.edible }}</p>
-        <p> Poisonous : {{p.poisonous }}</p>
-        <p> Toxicity : {{p.toxicity }}</p>
+  <div>
+    <h3> List of mushrooms :</h3>
+
+    <div *ngFor="let p of catalogue$ | async">
+      <div class="itemCatalogue">
+        <div class="imgCatalogue">
+          <p><img src="{{p.img}}" alt="N/A" /> </p>
+        </div>
+        <div class="infoCatalogue">
+          <p> Name : {{p.name}}</p>
+          <p> Description : {{p.description}}</p>
+          <p> Edible : {{p.edible }}</p>
+          <p> Poisonous : {{p.poisonous }}</p>
+          <p> Toxicity : {{p.toxicity }}</p>
+        </div>
       </div>
     </div>
   </div>
-
-</div>
